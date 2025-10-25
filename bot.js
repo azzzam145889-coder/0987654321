@@ -1,23 +1,29 @@
-// 📦 استيراد مكتبة bedrock-protocol
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-// 🟢 إعدادات البوت
-const BOT_NAME = 'FUCK YOU'; // اسم البوت في السيرفر (offline mode)
+const BOT_NAME = 'FUCK YOU';
 const HOST = 'emerald.magmanode.com';
 const PORT_SERVER = 33760;
 
-// 🟢 دالة تشغيل البوت
 async function startBot() {
   try {
     const client = createClient({
       host: HOST,
       port: PORT_SERVER,
       username: BOT_NAME,
-      offline: true // offline mode لتجنب مشاكل Microsoft Auth
+      offline: true
     });
 
-    client.on('join', () => console.log(`✅ البوت "${BOT_NAME}" دخل السيرفر بنجاح!`));
+    client.on('join', () => {
+      console.log(`✅ البوت "${BOT_NAME}" دخل السيرفر بنجاح!`);
+
+      // 📝 إرسال رسالة تلقائية في الشات كل 5 دقائق
+      setInterval(() => {
+        if (client && client.sendMessage) {
+          client.sendMessage('البوت لا يزال يعمل ✅');
+        }
+      }, 5 * 60 * 1000);
+    });
 
     client.on('disconnect', () => {
       console.log('⚠️ تم قطع الاتصال من السيرفر. إعادة المحاولة بعد 3 ثواني...');
@@ -34,15 +40,29 @@ async function startBot() {
   }
 }
 
-// 🔁 تشغيل البوت لأول مرة
 startBot();
 
-// 🌍 خادم HTTP لإبقاء البوت شغال في Render
 const PORT_HTTP = process.env.PORT || 3000;
-
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
   res.end('✅ Bot is alive and running on Render!');
-}).listen(PORT_HTTP, () => {
+});
+
+server.listen(PORT_HTTP, () => {
   console.log(`🌐 HTTP server running on port ${PORT_HTTP}`);
 });
+
+// 🔄 إبقاء السيرفر في MagmaNode شغال 24/7
+setInterval(() => {
+  http.get('https://zero987654321-df0r.onrender.com', (res) => {
+    console.log(`💓 Ping sent to keep Render alive (${res.statusCode})`);
+  }).on('error', (err) => {
+    console.log('⚠️ خطأ أثناء إرسال Ping:', err.message);
+  });
+
+  http.get('https://emerald.magmanode.com', (res) => {
+    console.log(`💎 Ping sent to MagmaNode (${res.statusCode})`);
+  }).on('error', (err) => {
+    console.log('⚠️ خطأ أثناء Ping إلى MagmaNode:', err.message);
+  });
+}, 5 * 60 * 1000);
