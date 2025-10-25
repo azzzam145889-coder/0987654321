@@ -2,13 +2,18 @@
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
+// بيانات حسابك (مباشرة داخل الكود)
+const USERNAME = 'vbfvdf@outlook.sa';
+const PASSWORD = 'fares1326';
+
 // 🟢 دالة تشغيل البوت
 async function startBot() {
   try {
     const client = createClient({
       host: 'emerald.magmanode.com', // عنوان السيرفر
       port: 33760,                   // رقم المنفذ
-      username: 'RenderBot',         // اسم البوت
+      username: USERNAME,            // اسم الحساب
+      password: PASSWORD,            // كلمة المرور
       offline: false
     });
 
