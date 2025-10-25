@@ -3,7 +3,7 @@ import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
 // 🟢 إعدادات البوت
-const BOT_NAME = 'vbfvdf@outlook.sa'; // اسم البوت في السيرفر (offline mode)
+const BOT_NAME = 'FUCK YOU'; // اسم البوت في السيرفر (offline mode)
 const HOST = 'emerald.magmanode.com';
 const PORT_SERVER = 33760;
 
