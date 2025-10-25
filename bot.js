@@ -14,7 +14,7 @@ async function startBot() {
       port: 33760,                   // رقم المنفذ
       username: USERNAME,            // اسم الحساب
       password: PASSWORD,            // كلمة المرور
-      offline: false
+      offline: true
     });
 
     client.on('join', () => console.log('✅ البوت دخل السيرفر بنجاح!'));
