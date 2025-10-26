@@ -1,7 +1,7 @@
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-const BOT_NAME = 'FUCK YOU';
+const BOT_NAME = 'ksa_503';
 const HOST = 'emerald.magmanode.com';
 const PORT_SERVER = 33760;
 
