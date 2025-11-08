@@ -1,9 +1,10 @@
+
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-const BOT_NAME = 'ksa_503';
-const HOST = 'emerald.magmanode.com';
-const PORT_SERVER = 33760;
+const BOT_NAME = 'Abdul_Rahman';
+const HOST = 'scaredburg.progamer.me';
+const PORT_SERVER = 32423;
 
 async function startBot() {
   try {
@@ -11,7 +12,7 @@ async function startBot() {
       host: HOST,
       port: PORT_SERVER,
       username: BOT_NAME,
-      offline: false
+      offline: true
     });
 
     client.on('join', () => {
@@ -22,7 +23,7 @@ async function startBot() {
         if (client && client.sendMessage) {
           client.sendMessage('البوت لا يزال يعمل ✅');
         }
-      }, 5 * 60 * 1000);
+      }, 10 * 60 * 1000);
     });
 
     client.on('disconnect', () => {
