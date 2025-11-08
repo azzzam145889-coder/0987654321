@@ -12,7 +12,7 @@ async function startBot() {
       host: HOST,
       port: PORT_SERVER,
       username: BOT_NAME,
-      offline: false
+      offline: true
     });
 
     client.on('join', () => {
