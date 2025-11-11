@@ -3,7 +3,7 @@ import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
 const BOT_NAME = 'Abdul_Rahman';
-const HOST = 'scaredburg.progamer.me';
+const HOST = 'scar.progamer.me';
 const PORT_SERVER = 32423;
 
 async function startBot() {
