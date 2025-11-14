@@ -2,7 +2,7 @@
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-const BOT_NAME = 'Abdul_Rahman11';
+
 const HOST = 'scar.progamer.me';
 const PORT_SERVER = 32423;
 
@@ -12,7 +12,7 @@ async function startBot() {
       host: HOST,
       port: PORT_SERVER,
       username: BOT_NAME,
-      offline: true
+      offline: false
     });
 
     client.on('join', () => {
