@@ -2,7 +2,7 @@
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-
+let BOT_NAME = "AFK"
 const HOST = 'scar.progamer.me';
 const PORT_SERVER = 32423;
 
