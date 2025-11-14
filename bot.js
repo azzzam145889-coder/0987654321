@@ -2,7 +2,7 @@
 import { createClient } from 'bedrock-protocol';
 import http from 'http';
 
-const BOT_NAME = 'Abdul_Rahman';
+const BOT_NAME = 'Abdul_Rahman11';
 const HOST = 'scar.progamer.me';
 const PORT_SERVER = 32423;
 
